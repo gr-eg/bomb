@@ -10,8 +10,8 @@ defmodule Bomb do
   end
 
   def setup_MCP do
-    {:ok, pid} = I2c.start_link("i2c-0", 0x20) 
-    I2c.write(pid, <<0x14, 0b000>>)
+    {:ok, pid} = I2c.start_link("i2c-0", 0x20)
+    Bomb.Led.write(pid, 0)
     {:ok, pid}
   end
 
